@@ -21,21 +21,21 @@ class TestStringMethods(unittest.TestCase):
      
     def test_001_adiciona_aluno(self):
         r = requests.post(f'{BASE_URL}/alunos',json={'nome': 'Gabriel', 'id':1})
-        r = requests.post(f'{BASE_URL}/alunos',json={'nome': 'Pablo', 'id':2})
+        r = requests.post(f'{BASE_URL}/alunos',json={'nome': 'Joao', 'id':2})
          
         r_lista = requests.get(f'{BASE_URL}/alunos')
         lista_retornada = r_lista.json()
         achei_Gabriel = False
-        achei_Pablo = False
+        achei_Joao = False
         for aluno in lista_retornada:
             if aluno['nome'] == 'Gabriel':
                 achei_Gabriel = True
-            if aluno['nome'] == 'Pablo':
-                achei_Pablo = True
+            if aluno['nome'] == 'Joao':
+                achei_Joao = True
         if not achei_Gabriel:
             self.fail("Aluno Fernando não aparece na lista de alunos")
-        if not achei_Pablo:
-            self.fail("Aluno Pablo não aparece na lista de alunos")
+        if not achei_Joao:
+            self.fail("Aluno Joao não aparece na lista de alunos")
             
     def test_002_aluno_por_id(self):
         r = requests.post(f'{BASE_URL}/alunos',json={'nome': 'Jobe', 'id':7})
