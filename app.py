@@ -109,7 +109,7 @@ def adiciona_turma(dict):
     dados['turmas'].append(dict)
     
 def lista_turmas():
-    return dados['professores']
+    return dados['turmas']
 
 def apaga_todas_turmas():
     dados['turmas'] = []
